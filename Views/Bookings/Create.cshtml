@@ -1,0 +1,248 @@
+﻿@model WebApplication_MVC.Models.Booking
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Add new Booking</h4>
+<div class="container booking-container">
+    <div class="form-container">
+        
+        <h1>Booking Form</h1>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="BookingID" class="control-label"></label>
+                <input asp-for="BookingID" class="form-control" />
+                <span asp-validation-for="BookingID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <input asp-for="UserID" class="form-control" />
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarID" class="control-label"></label>
+                <input asp-for="CarID" class="form-control" />
+                <span asp-validation-for="CarID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingDate" class="control-label"></label>
+                <input asp-for="BookingDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="image-container">
+        <img src="https://www.pngitem.com/pimgs/m/621-6214893_taxi-business-taxi-app-development-hd-png-download.png" alt="Car Booking" />
+    </div>
+</div>
+
+<div class="back-link">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    h4{
+        text-align: left;
+        font-size: 2.3rem;
+        font-weight: bold;
+        color: #343a40; /* Dark color for better visibility */
+        margin-bottom: 1.5rem;
+        padding: 0.5rem;
+        border-bottom: 2px solid #dee2e6; /* Adds an underline effect */
+    }
+    h1{
+        text-align: left;
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: #343a40; /* Dark color for better visibility */
+        margin-bottom: 1.5rem;
+        padding: 0.5rem;
+        border-bottom: 2px solid #dee2e6;
+    }
+    /* Container to hold form and image */
+    .booking-container {
+        display: flex; /* Use Flexbox for layout */
+        height: 75vh; /* Full height of the viewport */
+    }
+
+    /* Form section styles */
+    /* Form Container */
+    .form-container {
+        flex: 1; /* Take up half the available space */
+        padding: 20px; /* Padding inside the form */
+        background-color: #ffe6a7; /* Light background for form */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        height:100%;
+    }
+
+    /* Image section styles */
+    .image-container {
+        width: 50%; /* Right side width */
+        background-color:#f9f9f9;/* Yellow background */
+        display: flex; /* Center image vertically */
+        align-items: center; /* Center image vertically */
+        justify-content: center; /* Center image horizontally */
+        height: 90%;
+    }
+
+        .image-container img {
+            max-width: 150%; /* Responsive image */
+            max-height: 150%; /* Responsive image */
+            object-fit: cover; /* Cover the container without distortion */
+        }
+
+    /* Button styles */
+    .btn-primary {
+        background-color: #ff6f20; /* Orange background */
+        border: none; /* Remove border */
+        color: #fff; /* White text */
+        padding: 10px 15px; /* Padding for the button */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+     .btn-primary:hover {
+            background-color: #e65c1b; /* Darker shade on hover */
+        }
+
+    /* Validation error styles */
+    .text-danger {
+        color: red; /* Red color for validation error messages */
+    }
+
+    /* Back link style */
+    .back-link {
+        margin-top: 20px; /* Add some space above the link */
+        text-align: center; /* Center the link */
+    }
+
+    /* Style for the body to set a background color and font */
+    body {
+        background-color: #f8f9fa; /* Light grey background */
+        font-family: Arial, sans-serif; /* Font family */
+        padding: 20px; /* Padding around the page */
+    }
+
+    /* Header styles */
+    h1 {
+        color: #333; /* Darker text for the header */
+        font-size: 2em; /* Larger font size for the main header */
+    }
+
+    h4 {
+        color: #555; /* Medium grey color for sub-header */
+    }
+
+    /* Row styles */
+    .row {
+        margin-top: 20px; /* Space above the row */
+    }
+
+    /* Column styles */
+    .col-md-4 {
+        background-color: #fff; /* White background for form container */
+        padding: 20px; /* Padding inside the form container */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    /* Form group styles */
+    .form-group {
+        margin-bottom: 15px; /* Space between form fields */
+    }
+
+    /* Label styles */
+    .control-label {
+        font-weight: bold; /* Bold labels */
+    }
+
+    /* Input styles */
+    input.form-control {
+        border: 1px solid #ced4da; /* Light grey border */
+        border-radius: 4px; /* Slightly rounded corners */
+        padding: 10px; /* Padding inside input fields */
+    }
+
+    /* Submit button styles */
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary button color */
+        border: none; /* Remove border */
+        color: #fff; /* White text */
+        padding: 10px 15px; /* Padding for the button */
+        border-radius: 4px; /* Slightly rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+    /* Link styles */
+    a {
+        color: #007bff; /* Link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+    /* Validation error styles */
+    .text-danger {
+        color: red; /* Red color for validation error messages */
+    }
+
+    /* Back Link Container */
+    .back-link {
+        margin-top: 20px; /* Space above the back link */
+        text-align: center; /* Center the text */
+    }
+
+        /* Back Link Style */
+        .back-link a {
+            text-decoration: none; /* Remove underline */
+            color: #007bff; /* Bootstrap primary color */
+            font-weight: bold; /* Make text bold */
+            padding: 10px 15px; /* Padding around the text */
+            border: 2px solid #007bff; /* Border around the link */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+        }
+
+            /* Hover Effect */
+            .back-link a:hover {
+                background-color: #007bff; /* Change background color on hover */
+                color: #fff; /* Change text color on hover */
+            }
+
+
+</style>
